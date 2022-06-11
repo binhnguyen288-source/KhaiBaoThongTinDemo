@@ -99,7 +99,7 @@
                         </div>
                         <!-- Modal body -->
                         <div class="p-6 space-y-6">
-                            <video id="camera"></video>
+                            <video id="camera" muted playsinline></video>
                         </div>
                         <!-- Modal footer -->
                         <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200">
@@ -121,47 +121,51 @@
             });
 
             const stream = document.getElementById('camera');
-            stream.setAttribute('muted', '');
-            stream.setAttribute('autoplay', '');
-            stream.srcObject = src;
-            const result = await new Promise((resolve) => {
-                const canvas = document.createElement('canvas');
-                canvas.width = 1280;
-                canvas.height = 720;
-                const ctx = canvas.getContext("2d");
-                
-                const id = setInterval(() => {
-                    ctx.drawImage(stream, 0, 0, canvas.width, canvas.height);
-                    const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-                    var buffer = zxing._malloc(data.length);
-                    zxing.HEAPU8.set(data, buffer);
-                    zxing._free(buffer);
-                    var result = zxing.readBarcodeFromPixmap(buffer, canvas.width, canvas.height, true, "QRCode");
-                    if (result) {
-                        if (!result.error && result.format === "QRCode") {
-                            clearInterval(id);
-                            src.getTracks().forEach(track => track.stop());
-                            stream.srcObject = null;
-                            closeModal();
+            
+            stream.onloadedmetadata = async () => {
+                stream.play();
+                const result = await new Promise((resolve) => {
 
-                            resolve(result.text);
+                    const canvas = document.createElement('canvas');
+                    canvas.width = 1280;
+                    canvas.height = 720;
+                    const ctx = canvas.getContext("2d");
+                    
+                    const id = setInterval(() => {
+                        ctx.drawImage(stream, 0, 0, canvas.width, canvas.height);
+                        const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+                        var buffer = zxing._malloc(data.length);
+                        zxing.HEAPU8.set(data, buffer);
+                        zxing._free(buffer);
+                        var result = zxing.readBarcodeFromPixmap(buffer, canvas.width, canvas.height, true, "QRCode");
+                        if (result) {
+                            if (!result.error && result.format === "QRCode") {
+                                clearInterval(id);
+                                src.getTracks().forEach(track => track.stop());
+                                stream.srcObject = null;
+                                closeModal();
+
+                                resolve(result.text);
+                            }
                         }
-                    }
 
-                }, 100);
-            });
-            const fields = result.split('|');
-            const [cccd, cmnd, hoten, ngaysinh, gioitinh, diachi, ngaycap] = fields;
+                    }, 100);
+                });
+                const fields = result.split('|');
+                const [cccd, cmnd, hoten, ngaysinh, gioitinh, diachi, ngaycap] = fields;
 
-            document.getElementById('cccd').value = cccd;
-            document.getElementById('hoten').value = hoten;
-            document.getElementById('ngaysinh').value = `${ngaysinh.substr(4)}-${ngaysinh.substr(2, 2)}-${ngaysinh.substr(0, 2)}`;
-            document.getElementById('gioitinh').value = gioitinh;
-            document.getElementById('ngaycap').value = `${ngaycap.substr(4)}-${ngaycap.substr(2, 2)}-${ngaycap.substr(0, 2)}`;
-            document.getElementById('diachi').value = diachi.split(',')[0];
-            document.getElementById('phuong').value = diachi.split(',')[1];
-            document.getElementById('quan').value = diachi.split(',')[2];
-            document.getElementById('tinh').value = diachi.split(',')[3];
+                document.getElementById('cccd').value = cccd;
+                document.getElementById('hoten').value = hoten;
+                document.getElementById('ngaysinh').value = `${ngaysinh.substr(4)}-${ngaysinh.substr(2, 2)}-${ngaysinh.substr(0, 2)}`;
+                document.getElementById('gioitinh').value = gioitinh;
+                document.getElementById('ngaycap').value = `${ngaycap.substr(4)}-${ngaycap.substr(2, 2)}-${ngaycap.substr(0, 2)}`;
+                document.getElementById('diachi').value = diachi.split(',')[0];
+                document.getElementById('phuong').value = diachi.split(',')[1];
+                document.getElementById('quan').value = diachi.split(',')[2];
+                document.getElementById('tinh').value = diachi.split(',')[3];
+            }
+            stream.srcObject = src;
+
         }
         function closeModal() {
             const closeBtn = document.getElementById('closeModalBtn');
