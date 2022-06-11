@@ -116,7 +116,7 @@
         async function readBarcode() {
             const zxing = await ZXing();
             const src = await navigator.mediaDevices.getUserMedia({
-                video: { facingMode: "environment", width: { ideal: 1280 }, height: { ideal: 720 } },
+                video: { facingMode: "environment", width: { ideal: 4096 }, height: { ideal: 2160 } },
                 audio: false
             });
 
@@ -126,8 +126,8 @@
                 const result = await new Promise((resolve) => {
 
                     const canvas = document.createElement('canvas');
-                    canvas.width = 1280;
-                    canvas.height = 720;
+                    canvas.width = 4096;
+                    canvas.height = 2160;
                     const ctx = canvas.getContext("2d");
                     
                     const id = setInterval(() => {
