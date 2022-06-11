@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/dist/output.css" rel="stylesheet">
+    <script src="/dist/flowbite/dist/flowbite.js"></script>
+</head>
+<body>
+    <div class="m-auto w-3/4 pt-4">
+        <p class="mb-4 font-bold text-xl">Khai báo thông tin cá nhân</p>
+        <form action="#">
+            
+            <div class="relative z-0 w-full mb-6 group">
+                <input type="text" name="hoten" id="hoten" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                <label for="hoten" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Họ và tên</label>
+            </div>
+            <!-- <div class="relative z-0 w-full mb-6 group">
+                <input type="text" name="diachi" id="diachi" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                <label for="diachi" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Địa chỉ</label>
+            </div> -->
+            <div class="grid xl:grid-cols-4 xl:gap-6">
+                <div class="relative z-0 w-full mb-6 group">
+                    <input type="text" name="diachi" id="diachi" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="diachi" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Địa chỉ nhà</label>
+                </div>
+                <div class="relative z-0 w-full mb-6 group">
+                    <input type="text" name="phuong" id="phuong" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="phuong" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Phường/Xã/Ấp</label>
+                </div>
+                <div class="relative z-0 w-full mb-6 group">
+                    <input type="text" name="quan" id="quan" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="quan" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Quận/Huyện</label>
+                </div>
+                <div class="relative z-0 w-full mb-6 group">
+                    <input type="text" name="tinh" id="tinh" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="tinh" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Tỉnh/TP</label>
+                </div>
+            </div>
+            <div class="grid xl:grid-cols-2 xl:gap-6">
+                <div class="relative z-0 w-full mb-6 group">
+                    <input type="text" name="gioitinh" id="gioitinh" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="gioitinh" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Giới tính</label>
+                </div>
+                <div class="relative z-0 w-full mb-6 group">
+                    <input type="date" name="ngaysinh" id="ngaysinh" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="ngaysinh" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Ngày sinh</label>
+                </div>
+            </div>
+            
+            <div class="grid xl:grid-cols-2 xl:gap-6">
+                <div class="relative z-0 w-full mb-6 group">
+                    <input type="number" name="cccd" id="cccd" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="cccd" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Số CCCD</label>
+                </div>
+                <div class="relative z-0 w-full mb-6 group">
+                    <input type="date" name="ngaycap" id="ngaycap" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                    <label for="ngaycap" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Ngày cấp</label>
+                </div>
+            </div>
+            <div class="relative z-0 w-full mb-6 group">
+                <input type="text" name="somui" id="somui" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                <label for="somui" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Số mũi</label>
+            </div>
+            
+            <div class="relative z-0 w-full mb-6 group">
+                <select id="thunhap" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer">
+                    <option selected>Không trả lời</option>
+                    <option value="US">Dưới 5 triệu</option>
+                    <option value="CA">Khoảng 5-10 triệu</option>
+                    <option value="FR">Khoảng 10-20 triệu</option>
+                    <option value="DE">Trên 20 triệu</option>
+                </select>
+                <label for="thunhap" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Thu nhập</label>
+            </div>
+
+            <div class="flex items-start mb-6">
+                <div class="flex items-center h-5">
+                  <input id="terms" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300" required>
+                </div>
+                <label for="terms" class="ml-2 text-sm font-medium text-gray-900">Tôi cam kết thông tin khai báo trên của tôi là đúng sự thật và xin chịu hoàn toàn trách nhiệm.</a></label>
+            </div>
+            
+            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mb-3">Submit</button>
+            <button class="text-white bg-green-700 hover:bg-green-800 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center mb-3" type="button" data-modal-toggle="defaultModal" onclick="readBarcode()">
+                Quét mã QR
+            </button>
+            
+            <!-- Main modal -->
+            
+            <div id="defaultModal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center">
+                <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+                    <!-- Modal content -->
+                    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                        <!-- Modal header -->
+                        <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                Quét mã QR
+                            </h3>
+                            <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                            </button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="p-6 space-y-6">
+                            <video id="camera"></video>
+                        </div>
+                        <!-- Modal footer -->
+                        <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200 dark:border-gray-600">
+                            <button data-modal-toggle="defaultModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10" id="closeModalBtn">Hủy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        
+    </div>
+    <script src="zxing_reader.js"></script>
+	<script>
+        async function readBarcode() {
+            const zxing = await ZXing();
+            const src = await navigator.mediaDevices.getUserMedia({
+                video: { facingMode: "environment" },
+                audio: false
+            });
+
+            const stream = document.getElementById('camera');
+            stream.setAttribute('muted', '');
+            stream.setAttribute('autoplay', '');
+            stream.setAttribute('playsinline', '');
+            stream.srcObject = src;
+            const result = await new Promise((resolve) => {
+                const canvas = document.createElement('canvas');
+                canvas.width = 1280;
+                canvas.height = 720;
+                const ctx = canvas.getContext("2d");
+                
+                const id = setInterval(() => {
+                    ctx.drawImage(stream, 0, 0, canvas.width, canvas.height);
+                    const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+                    var buffer = zxing._malloc(data.length);
+                    zxing.HEAPU8.set(data, buffer);
+                    zxing._free(buffer);
+                    var result = zxing.readBarcodeFromPixmap(buffer, canvas.width, canvas.height, true, "QRCode");
+                    if (result) {
+                        if (!result.error && result.format === "QRCode") {
+                            clearInterval(id);
+                            src.getTracks().forEach(track => track.stop());
+                            stream.srcObject = null;
+                            closeModal();
+
+                            resolve(result.text);
+                        }
+                    }
+
+                }, 100);
+            });
+            const fields = result.split('|');
+            const [cccd, cmnd, hoten, ngaysinh, gioitinh, diachi, ngaycap] = fields;
+
+            document.getElementById('cccd').value = cccd;
+            document.getElementById('hoten').value = hoten;
+            document.getElementById('ngaysinh').value = `${ngaysinh.substr(4)}-${ngaysinh.substr(2, 2)}-${ngaysinh.substr(0, 2)}`;
+            document.getElementById('gioitinh').value = gioitinh;
+            document.getElementById('ngaycap').value = `${ngaycap.substr(4)}-${ngaycap.substr(2, 2)}-${ngaycap.substr(0, 2)}`;
+            document.getElementById('diachi').value = diachi.split(',')[0];
+            document.getElementById('phuong').value = diachi.split(',')[1];
+            document.getElementById('quan').value = diachi.split(',')[2];
+            document.getElementById('tinh').value = diachi.split(',')[3];
+        }
+        function closeModal() {
+            const closeBtn = document.getElementById('closeModalBtn');
+            closeBtn.click();
+        }
+
+	</script>
+    
+</body>
+</html>
