@@ -111,12 +111,12 @@
         </form>
         
     </div>
-    <script src="zxing_reader.js"></script>
+    <script src="out.js"></script>
 	<script>
         async function readBarcode() {
-            const zxing = await ZXing();
+            const wasm = await Module();
             const src = await navigator.mediaDevices.getUserMedia({
-                video: { facingMode: "environment", width: { ideal: 1920 * 2 }, height: { ideal: 1080 * 2 } },
+                video: { facingMode: "environment", width: { ideal: 1920 }, height: { ideal: 1080 } },
                 audio: false
             });
 
@@ -126,27 +126,23 @@
             canvas.height = src.getVideoTracks()[0].getSettings().height;
             const ctx = canvas.getContext("2d");
             
+            
             stream.onloadedmetadata = async () => {
                 const result = await new Promise((resolve) => {
-
-                   
-                    
+ 
+                    let buffer = wasm.ccall('allocateBuffer', 'number', ['number'], [canvas.width * canvas.height * 4]);
                     const id = setInterval(() => {
                         ctx.drawImage(stream, 0, 0, canvas.width, canvas.height);
                         const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-                        var buffer = zxing._malloc(data.length);
-                        zxing.HEAPU8.set(data, buffer);
-                        zxing._free(buffer);
-                        var result = zxing.readBarcodeFromPixmap(buffer, canvas.width, canvas.height, true, "QRCode");
+                        wasm.HEAPU8.set(data, buffer);
+                        const result = wasm.ccall('detectCode', 'string', ['number', 'number'], [canvas.width, canvas.height]);
                         if (result) {
-                            if (!result.error && result.format === "QRCode") {
-                                clearInterval(id);
-                                src.getTracks().forEach(track => track.stop());
-                                stream.srcObject = null;
-                                closeModal();
+                            clearInterval(id);
+                            src.getTracks().forEach(track => track.stop());
+                            stream.srcObject = null;
+                            closeModal();
 
-                                resolve(result.text);
-                            }
+                            resolve(result);
                         }
 
                     }, 100);
