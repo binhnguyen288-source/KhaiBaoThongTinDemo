@@ -99,7 +99,7 @@
                         </div>
                         <!-- Modal body -->
                         <div class="p-6 space-y-6">
-                            <video id="camera" muted playsinline></video>
+                            <video id="camera" muted autoplay playsinline></video>
                         </div>
                         <!-- Modal footer -->
                         <div class="flex items-center p-6 space-x-2 rounded-b border-t border-gray-200">
@@ -123,7 +123,6 @@
             const stream = document.getElementById('camera');
             
             stream.onloadedmetadata = async () => {
-                stream.play();
                 const result = await new Promise((resolve) => {
 
                     const canvas = document.createElement('canvas');
