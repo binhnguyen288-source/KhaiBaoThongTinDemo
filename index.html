@@ -123,7 +123,6 @@
             const stream = document.getElementById('camera');
             stream.setAttribute('muted', '');
             stream.setAttribute('autoplay', '');
-            stream.setAttribute('playsinline', '');
             stream.srcObject = src;
             const result = await new Promise((resolve) => {
                 const canvas = document.createElement('canvas');
