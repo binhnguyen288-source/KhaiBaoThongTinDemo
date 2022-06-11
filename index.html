@@ -116,7 +116,7 @@
         async function readBarcode() {
             const zxing = await ZXing();
             const src = await navigator.mediaDevices.getUserMedia({
-                video: { facingMode: "environment" },
+                video: { facingMode: "environment", width: { ideal: 1280 }, height: { ideal: 720 } },
                 audio: false
             });
 
