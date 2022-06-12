@@ -113,19 +113,31 @@
     </div>
     <script src="out.js"></script>
 	<script>
+
         let wasm = null;
         let currentMedia = null;
+        let wasmPromise = new Promise(async resolve => {
+            wasm = await Module();
+            resolve();
+        });
 
         function closeMedia() {
-            currentMedia.getTracks().forEach(track => track.stop());
+            if (currentMedia) currentMedia.getTracks().forEach(track => track.stop());
+            currentMedia = null;
         }
 
         async function readBarcode() {
-            if (!wasm) wasm = await Module();
+
+            
+
             currentMedia = await navigator.mediaDevices.getUserMedia({
                 video: { facingMode: "environment", width: { ideal: 1920 }, height: { ideal: 1080 } },
                 audio: false
             });
+
+            
+            await wasmPromise;
+
 
             const stream = document.getElementById('camera');
             const canvas = document.createElement('canvas');
