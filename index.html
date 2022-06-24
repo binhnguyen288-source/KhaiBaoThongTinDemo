@@ -9,7 +9,7 @@
 <body>
     <div class="m-auto w-3/4 pt-4">
         <p class="mb-4 font-bold text-xl">Khai báo thông tin cá nhân</p>
-        <form action="#">
+        <form action="https://quanlydancu.ddns.net:8080/infosend">
             
             <div class="relative z-0 w-full mb-6 group">
                 <input type="text" name="hoten" id="hoten" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
@@ -58,14 +58,18 @@
                 <input type="text" name="somui" id="somui" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                 <label for="somui" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Số mũi</label>
             </div>
+            <div class="relative z-0 w-full mb-6 group">
+                <input type="number" name="sdt" id="sdt" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+                <label for="sdt" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">SĐT</label>
+            </div>
             
             <div class="relative z-0 w-full mb-6 group">
-                <select id="thunhap" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer">
-                    <option selected>Không trả lời</option>
-                    <option value="US">Dưới 5 triệu</option>
-                    <option value="CA">Khoảng 5-10 triệu</option>
-                    <option value="FR">Khoảng 10-20 triệu</option>
-                    <option value="DE">Trên 20 triệu</option>
+                <select id="thunhap" name="thunhap" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer">
+                    <option value="0">Không trả lời</option>
+                    <option value="1">Dưới 5 triệu</option>
+                    <option value="2">Khoảng 5-10 triệu</option>
+                    <option value="3">Khoảng 10-20 triệu</option>
+                    <option value="4">Trên 20 triệu</option>
                 </select>
                 <label for="thunhap" class="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Thu nhập</label>
             </div>
